@@ -31,7 +31,7 @@ val kinesis = env.addSource(new FlinkKinesisConsumer[String]("scala-data-stream"
 
 // Write the data stream to S3
 val sink: StreamingFileSink[String] = StreamingFileSink
-    .forRowFormat(new Path("s3://sfsdf5454/simple-scala-example"), new SimpleStringEncoder[String]("UTF-8"))
+    .forRowFormat(new Path("s3://<s3-bucker-name>/simple-scala-example"), new SimpleStringEncoder[String]("UTF-8"))
     .withRollingPolicy(
         DefaultRollingPolicy.builder()
             .withRolloverInterval(60000) // 60 seconds

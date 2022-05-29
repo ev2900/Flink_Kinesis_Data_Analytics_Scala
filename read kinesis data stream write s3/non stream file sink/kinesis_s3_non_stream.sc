@@ -17,9 +17,9 @@ consumerConfig.put(ConsumerConfigConstants.STREAM_INITIAL_POSITION, "TRIM_HORIZO
 val env = StreamExecutionEnvironment.getExecutionEnvironment
 
 // Create an input data stream kinesis
-val kinesis = env.addSource(new FlinkKinesisConsumer[String]("scala-data-stream", new SimpleStringSchema, consumerConfig))
+val kinesis = env.addSource(new FlinkKinesisConsumer[String]("<kinesis-data-stream-name>", new SimpleStringSchema, consumerConfig))
 
 // Write the data stream to S3
-kinesis.writeAsText("s3://sfsdf5454/simple-scala-example.json");
+kinesis.writeAsText("s3://<s3-bucker-name>/simple-scala-example.json");
 
 env.execute()
